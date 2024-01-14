@@ -1,0 +1,351 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<StartupObject>BJ.Quartz.Program</StartupObject>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="appsettings.json" />
+		<None Remove="Resource\favicon.ico" />
+		<None Remove="wwwroot\Content\api\clear.json" />
+		<None Remove="wwwroot\Content\api\init.json" />
+		<None Remove="wwwroot\Content\api\menus.json" />
+		<None Remove="wwwroot\Content\api\table.json" />
+		<None Remove="wwwroot\Content\api\tableSelect.json" />
+		<None Remove="wwwroot\Content\api\upload.json" />
+		<None Remove="wwwroot\Content\css\layuimini.css" />
+		<None Remove="wwwroot\Content\css\public.css" />
+		<None Remove="wwwroot\Content\css\site.css" />
+		<None Remove="wwwroot\Content\css\themes\default.css" />
+		<None Remove="wwwroot\Content\images\bg.jpg" />
+		<None Remove="wwwroot\Content\images\captcha.jpg" />
+		<None Remove="wwwroot\Content\images\dataempty.png" />
+		<None Remove="wwwroot\Content\images\donate_qrcode.png" />
+		<None Remove="wwwroot\Content\images\favicon.ico" />
+		<None Remove="wwwroot\Content\images\home.png" />
+		<None Remove="wwwroot\Content\images\icon-login.png" />
+		<None Remove="wwwroot\Content\images\loginbg.png" />
+		<None Remove="wwwroot\Content\images\logo.png" />
+		<None Remove="wwwroot\Content\js\baseconfgi.js" />
+		<None Remove="wwwroot\Content\js\bj-pagelist.js" />
+		<None Remove="wwwroot\Content\js\BusComponent.js" />
+		<None Remove="wwwroot\Content\js\common.js" />
+		<None Remove="wwwroot\Content\js\CrudPage.js" />
+		<None Remove="wwwroot\Content\js\http.js" />
+		<None Remove="wwwroot\Content\js\lay-config.js" />
+		<None Remove="wwwroot\Content\js\lay-module\lay-config.js" />
+		<None Remove="wwwroot\Content\js\lay-module\layuimini\miniAdmin.js" />
+		<None Remove="wwwroot\Content\js\lay-module\layuimini\miniMenu.js" />
+		<None Remove="wwwroot\Content\js\lay-module\layuimini\miniTab.js" />
+		<None Remove="wwwroot\Content\js\lay-module\layuimini\miniTheme.js" />
+		<None Remove="wwwroot\Content\js\lay-module\layuimini\miniTongji.js" />
+		<None Remove="wwwroot\Content\js\message.js" />
+		<None Remove="wwwroot\Content\js\plugin\ban\ban.min.js" />
+		<None Remove="wwwroot\Content\js\plugin\serchDialog.js" />
+		<None Remove="wwwroot\Content\js\Search.js" />
+		<None Remove="wwwroot\Content\js\site.js" />
+		<None Remove="wwwroot\Content\js\tableselectEx.js" />
+		<None Remove="wwwroot\Content\js\tabletoexcel.js" />
+		<None Remove="wwwroot\Content\lib\artTemplate\template-simple.js" />
+		<None Remove="wwwroot\Content\lib\artTemplate\template.js" />
+		<None Remove="wwwroot\Content\lib\axios.min.js" />
+		<None Remove="wwwroot\Content\lib\jquery-3.4.1\jquery-3.4.1.min.js" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\css\layui.css" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\css\modules\code.css" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\css\modules\laydate\default\laydate.css" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\icon-ext.png" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\icon.png" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\layer.css" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\loading-0.gif" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\loading-1.gif" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\loading-2.gif" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\font\iconfont.eot" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\font\iconfont.svg" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\font\iconfont.ttf" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\font\iconfont.woff" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\font\iconfont.woff2" />
+		<None Remove="wwwroot\Content\lib\layui-v2.6.3\layui.js" />
+		<None Remove="wwwroot\Content\lib\signalr.js" />
+		<None Remove="wwwroot\favicon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="Resource\favicon.ico">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\api\clear.json">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\api\init.json">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\api\menus.json">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\api\table.json">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\api\tableSelect.json">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\api\upload.json">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\css\layuimini.css">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\css\public.css">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\css\site.css">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\css\themes\default.css">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\images\bg.jpg">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\images\captcha.jpg">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\images\dataempty.png">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\images\donate_qrcode.png">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\images\favicon.ico">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\images\home.png">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\images\icon-login.png">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\images\loginbg.png">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\images\logo.png">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\baseconfgi.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\bj-pagelist.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\BusComponent.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\common.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\CrudPage.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\http.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\lay-config.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\lay-module\lay-config.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\lay-module\layuimini\miniAdmin.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\lay-module\layuimini\miniMenu.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\lay-module\layuimini\miniTab.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\lay-module\layuimini\miniTheme.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\lay-module\layuimini\miniTongji.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\message.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\plugin\ban\ban.min.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\plugin\serchDialog.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\Search.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\site.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\tableselectEx.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\js\tabletoexcel.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\artTemplate\template-simple.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\artTemplate\template.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\axios.min.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\jquery-3.4.1\jquery-3.4.1.min.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\css\layui.css">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\css\modules\code.css">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\css\modules\laydate\default\laydate.css">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\icon-ext.png">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\icon.png">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\layer.css">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\loading-0.gif">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\loading-1.gif">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\css\modules\layer\default\loading-2.gif">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\font\iconfont.eot">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\font\iconfont.svg">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\font\iconfont.ttf">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\font\iconfont.woff">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\font\iconfont.woff2">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\layui-v2.6.3\layui.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\Content\lib\signalr.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Include="wwwroot\favicon.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.21" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.4" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="SqlSugarCore" Version="5.1.4.109" />
+		<PackageReference Include="Quartz" Version="3.0.7" />
+		<PackageReference Include="System.ServiceProcess.ServiceController" Version="7.0.1" />
+
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="wwwroot\Content\page\quartz\log.html">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="wwwroot\Content\page\quartz\index.html">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+
+
+</Project>

@@ -1,0 +1,186 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "/home/vn/welcome"
+  },
+  "logoInfo": {
+    "title": "罗网",
+    "image": "",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+      "id": 100,
+      "pid": 0,
+      "title": "数据管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "modulekey": "lwdb",
+      "target": "_self",
+      "child": [
+        {
+          "id": 10001,
+          "pid": 100,
+          "title": "数据库管理",
+          "href": "",
+          "modulekey": "lwdb.db",
+          "icon": "fa fa-home",
+          "target": "_self",
+          "child": [
+            {
+              "id": 1000101,
+              "pid": 10001,
+              "modulekey": "lwdb.db.config",
+              "title": "连接配置",
+              "href": "/page/database/configinfo/list.html",
+              "icon": "layui-icon layui-icon-set-fill",
+              "target": "_self"
+            },
+            {
+              "id": 1000102,
+              "pid": 10001,
+              "title": "传输管理",
+              "modulekey": "lwdb.db.trans",
+              "href": "/page/database/configinfo/trans.html",
+              "icon": "layui-icon layui-icon-chart",
+              "target": "_self"
+            },
+            {
+              "id": 1000103,
+              "pid": 10001,
+              "title": "新建查询",
+              "modulekey": "lwdb.db.search",
+              "href": "/page/database/sql/search.html",
+              "icon": "layui-icon layui-icon-chart-screen",
+              "target": "_self"
+            },
+            {
+              "id": 1000104,
+              "pid": 10001,
+              "title": "Redis管理",
+              "modulekey": "lwdb.db.redis",
+              "href": "/page/database/redis/search.html",
+              "icon": "layui-icon layui-icon-tree",
+              "target": "_self"
+            },
+            {
+              "id": 1000105,
+              "pid": 10001,
+              "title": "迁移计划",
+              "modulekey": "lwdb.db.migrate",
+              "href": "/page/MigrateGroup/common/list.html",
+              "icon": "layui-icon layui-icon-set-sm",
+              "target": "_self"
+            },
+            {
+              "id": 1000106,
+              "pid": 10001,
+              "title": "常用SQL",
+              "modulekey": "lwdb.db.cysql",
+              "href": "/page/database/sql/CommonExecSql.html",
+              "icon": "layui-icon layui-icon-senior",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "id": 10002,
+          "pid": 100,
+          "title": "调度平台",
+          "href": "",
+          "modulekey": "lwdb.quartz",
+          "icon": "layui-icon layui-icon-engine",
+          "target": "_self",
+          "child": [
+            {
+              "id": 1000201,
+              "pid": 10002,
+              "modulekey": "lwdb.quartz.task",
+              "title": "定时任务",
+              "href": "/page/Quartz/Com/index.html",
+              "icon": "layui-icon layui-icon-engine",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "id": 10003,
+          "pid": 100,
+          "title": "工具",
+          "href": "",
+          "modulekey": "lwdb.tool",
+          "icon": "layui-icon layui-icon-util",
+          "target": "_self",
+          "child": [ 
+            {
+              "id": 1000302,
+              "pid": 10003,
+              "modulekey": "lwdb.design.json",
+              "title": "设计器",
+              "href": "/content/lib/report-designer-master/index.html",
+              "icon": "layui-icon layui-icon-set-fill",
+              "target": "_self"
+            },
+            {
+              "id": 1000301,
+              "pid": 10003,
+              "modulekey": "lwdb.tool.json",
+              "title": "Json美化",
+              "href": "/page/tool/json/index.html",
+              "icon": "layui-icon layui-icon-set-fill",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "id": 10004,
+          "pid": 100,
+          "title": "系统管理",
+          "href": "",
+          "modulekey": "lwdb.sys",
+          "icon": "layui-icon  layui-icon-friends",
+          "target": "_self",
+          "child": [
+            {
+              "id": 1000404,
+              "pid": 10004,
+              "modulekey": "lwdb.sys.menu",
+              "title": "字典管理",
+              "href": "/page/APPParmater/app/list.html",
+              "icon": "layui-icon layui-icon-group",
+              "target": "_self"
+            },
+            {
+              "id": 1000403,
+              "pid": 10004,
+              "modulekey": "lwdb.sys.menu",
+              "title": "产品管理",
+              "href": "/page/APPParmater/app/product.html",
+              "icon": "layui-icon layui-icon-group",
+              "target": "_self"
+            },
+            {
+              "id": 1000402,
+              "pid": 10004,
+              "modulekey": "lwdb.sys.menu",
+              "title": "菜单管理",
+              "href": "/page/page/menu/list.html",
+              "icon": "layui-icon layui-icon-group",
+              "target": "_self"
+            },
+            {
+              "id": 1000401,
+              "pid": 10004,
+              "modulekey": "lwdb.sys.user",
+              "title": "账户管理",
+              "href": "/page/Users/Com/index.html",
+              "icon": "layui-icon layui-icon-group",
+              "target": "_self"
+            }
+          ]
+        }
+      ]
+    }
+
+  ]
+}

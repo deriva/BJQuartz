@@ -1,0 +1,313 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 罗网-数据专家</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/content/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="/content/css/layuimini.css?v=2.0.4.2" media="all">
+    <link rel="stylesheet" href="/content/css/themes/default.css" media="all">
+    <link href="/content/css/public.css?v=1222" rel="stylesheet" />
+    <link rel="stylesheet" href="/content/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <script src="/content/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="/content/js/message.js"></script>
+    <script src='/content/lib/artTemplate/template-simple.js?v=12'></script>
+    <script src="/content/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+    <script src="/content/lib/axios.min.js"></script>
+    <script src="/content/js/plugin/ban/ban.min.js?v=12d2d"></script>
+    <script src='/content/js/lay-config.js?v=1.0.4'></script>
+    <script src='/content/js/http.js?v=23ssd2233d'></script>
+    <script src='/content/js/common.js?v=222121'></script>
+    <script src="/content/js/BusComponent.js"></script>
+    <script src="/content/js/tableselectEx.js"></script>
+
+</head>
+<body>
+
+
+    <div class="layuimini-container">
+        <div class="layuimini-main">
+            <div>
+                <form class="layui-form layui-form-pane" action="" id="fm" onclick="return false">
+                    <div class="layui-form-item">
+
+                        <div class="layui-inline">
+                            <button type="button" class="btnprimary"
+                                    onclick="location.reload()">
+                                <i class="layui-icon"></i> 刷新
+                            </button>
+                            <button class="btnsuccess" op-id="operate_edit" onclick="P.DialogEdit(-1)">  新建任务 </button>
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <!--列表页-->
+                <div>
+                    <table class='layui-table'>
+                        <thead class='head'>
+                            <tr>
+                                <th> </th>
+
+                                <th>作业名称</th>
+                                <th>分组</th>
+                                <th>最后执行时间</th>
+
+                                <th>间隔(Cron)</th>
+                                <th>状态</th>
+                                <th>描述</th>
+                                <th>ApiUrl</th>
+                                <th>请求方式</th>
+
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listtable">
+                        </tbody>
+                    </table>
+                </div>
+                <script type="text/html" id="tpl_lsttable">
+                    {{each lst as item }}
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>{{item.TaskName}}</td>
+                        <td>{{item.GroupName}}</td>
+                        <td>{{item.LastRunTime}}</td>
+                        <td>{{item.Interval}}</td>
+                        <td>
+                            <span class="tag{{item.StatusIndex}}">
+                                {{item.StatusName}}
+                            </span>
+                        </td>
+
+                        <td>{{item.Describe}}</td>
+
+                        <td>{{item.ApiUrl}}</td>
+                        <td>{{item.RequestType}}</td>
+                        <td>
+
+                            <a href='javascript:void(0)' onclick="P.DialogEdit('{{item.Id}}')">
+                                修改任务
+                            </a>
+                            <span class="spilitline">|</span>
+                            <a href='javascript:void(0)' onclick="P.tiggerAction('remove','{{item.Id}}')">
+                                删除任务
+                            </a>
+                            <span class="spilitline">|</span>
+                            <a href='javascript:void(0)' onclick="P.tiggerAction('start','{{item.Id}}')">
+                                开启任务
+                            </a>
+                            <span class="spilitline">|</span>
+                            <a href='javascript:void(0)' onclick="P.tiggerAction('pause','{{item.Id}}')">
+                                暂停任务
+                            </a>
+                            <span class="spilitline">|</span>
+                            <a href='javascript:void(0)' onclick="P.tiggerAction('run','{{item.Id}}')">
+                                立即执行
+                            </a>
+                            <span class="spilitline">|</span>
+                            <a href='javascript:void(0)' onclick="P.DialogLog('{{item.Id}}')">
+                                执行记录
+                            </a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                    {{if lst.length==0}}
+                    <tr>
+                        <td colspan="10" class="tc">
+                            <img src="/content/images/dataempty.png" />
+                        </td>
+                    </tr>
+                    {{/if}}
+                </script>
+                <div class='pagezone' id='pagezone'></div>
+            </div>
+        </div>
+    </div>
+    <!--编辑页页-->
+    <script type="text/html" id="tpl_edit">
+        <form id="fmedit">
+            <table class='layui-table'>
+                <tr>
+                    <th style="width:100px;">任务名称<span class="red">*</span></th>
+                    <td>
+                        <input class='layui-input' type='text' name='TaskName' value='{{TaskName}}'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>分组<span class="red">*</span></th>
+                    <td>
+                        <input class='layui-input' type='text' name='GroupName' value='{{GroupName}}'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        间隔(Cron)<span class="red">*</span>
+                        <br /><a href="https://cron.qqe2.com/" target="_blank">(参考示例)</a>
+                    </th>
+                    <td>
+                        <input class='layui-input' type='text' name='Interval' value='{{Interval}}'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>描述</th>
+                    <td>
+                        <input class='layui-input' type='text' name='Describe' value='{{Describe}}'>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>请求地址</th>
+                    <td>
+                        <input class='layui-input' type='text' name='ApiUrl' value='{{ApiUrl}}'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>请求方式</th>
+                    <td>
+                        <select class='layui-input' name='RequestType' defval='{{RequestType}}'>
+                            <option value="get">get</option>
+                            <option value="post">post</option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th>header(key)</th>
+                    <td>
+                        <input class='layui-input' type='text' name='AuthKey' value='{{AuthKey}}'>
+                        <input type='hidden' name='Id' value='{{Id}}'>
+                        <input type='hidden' name='LastRunTime' value='{{LastRunTime}}'>
+                    </td>
+                </tr>
+                <tr>
+                    <th>header(value)</th>
+                    <td>
+                        <input class='layui-input' type='text' name='AuthValue' value='{{AuthValue}}'>
+                    </td>
+
+                </tr>
+
+            </table>
+        </form>
+    </script>
+    <script src="/content/js/bj-pagelist.js"></script>
+    <script type="text/javascript">
+    var ban = new Ban({
+        data: {
+            Search: {
+                ID: "",
+
+                Name: "",
+                Status: "",
+
+                PageSize: 20,
+                Page: 1
+            }, //搜索条件
+            Lst: [], //列表集合,
+            searchcb: "P.HandData",
+            StatusLst: [
+            
+                { key: 1, val: "暂停" },
+                { key: 0, val: "正常" },
+                { key: 2, val: "完成" },
+                { key: 3, val: "异常" },
+                { key: 4, val: "阻塞" },
+                { key: 5, val: "停止" }
+            ],
+            SourceLst: [
+                { key: 1, val: "源数据库" },
+                { key: 2, val: "目标数据库" }
+            ],
+
+            SearchUrl: '/Quartz/GetJobs',
+            EditSaveUrl: '/Quartz/Add',
+            CancelUrl: '/Quartz/Delete'
+        }
+    });
+
+    var P = {
+        HandData: () => {
+            ban.$data.Lst.forEach(x => {
+                var index = ban.$data.StatusLst.findIndex(y => y.key == x.Status);
+                x.StatusIndex = 0;
+                if (index > -1) {
+                    x.StatusName = ban.$data.StatusLst[index].val;
+                    x.StatusIndex = index;
+                }
+
+            });
+
+        },
+        DialogEdit: (id) => {
+            var data = ban.$data.Edit;
+            if (id > 0) {
+                data = ban.$data.Lst.find(x => x.Id == id);
+            }
+            else {
+                data = {};
+                data.Id = 0; data.DatabaseType = 1; data.Status = 1;
+                data.Sorter = 999;
+            }
+
+            var html = template('tpl_edit', data);
+            LP.DialogHtml({
+                html: html, h: 600, w: 550,
+                title: "编辑",
+                cb: function () { P.Save() }
+            });
+            LP.InitDefval();
+        },
+        Save: function () {
+            var data = $("#fmedit").serializeJson();
+            data.Status = 0;
+            var url = ban.$data.EditSaveUrl;
+            if (data.Id > 0) url = "/Quartz/Update";
+           http.post(ban.$data.EditSaveUrl, data).then(r => {
+                top.message.ToastCode(r);
+                if (r.code == 100) {
+                    BJPL.SearchData(0);
+                    layer.closeAll();
+                }
+            });
+        },
+        tiggerAction: function (action, id) {
+            layer.confirm("确定操作【" + action + " 】吗？", () => {
+                var data = ban.$data.Lst.find(x => x.Id == id);
+                http.post('/Quartz/' + action, data).then(r => {
+                    top.message.ToastCode(r);
+                    if (r.code == 100) {
+                        layer.closeAll();
+                        BJPL.SearchData(0);
+                    }
+                });
+            });
+        },
+        //日志列表
+        DialogLog: (id) => {
+            var hr = "/content/page/Quartz/log.html?id=" + id;
+            top.LP.DialogRb(hr, 600, 0, "日志列表", 2);
+        },
+    }
+    $(() => {
+
+    });
+    </script>
+
+
+     
+</body>
+</html>

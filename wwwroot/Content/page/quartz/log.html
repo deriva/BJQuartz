@@ -1,0 +1,113 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 罗网-数据专家</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/content/lib/layui-v2.6.3/css/layui.css" media="all">
+    <link rel="stylesheet" href="/content/css/layuimini.css?v=2.0.4.2" media="all">
+    <link rel="stylesheet" href="/content/css/themes/default.css" media="all">
+    <link href="/content/css/public.css?v=1222" rel="stylesheet" />
+    <link rel="stylesheet" href="/content/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <script src="/content/lib/jquery-3.4.1/jquery-3.4.1.min.js"></script>
+    <script src="/content/js/message.js"></script>
+    <script src='/content/lib/artTemplate/template-simple.js?v=12'></script>
+    <script src="/content/lib/layui-v2.6.3/layui.js" charset="utf-8"></script>
+    <script src="/content/lib/axios.min.js"></script>
+    <script src="/content/js/plugin/ban/ban.min.js?v=12d2d"></script>
+    <script src='/content/js/lay-config.js?v=1.0.4'></script>
+    <script src='/content/js/http.js?v=23ssd2233d'></script>
+    <script src='/content/js/common.js?v=222121'></script>
+    <script src="/content/js/BusComponent.js"></script>
+    <script src="/content/js/tableselectEx.js"></script>
+
+</head>
+<body>
+
+
+    <div class="layuimini-container">
+        <div class="layuimini-main">
+
+            <div class="row">
+                <!--列表页-->
+                <div>
+                    <table class='layui-table'>
+                        <thead class='head'>
+                            <tr>
+
+                                <th>时间</th>
+                                <th>描述</th>
+                                <th>结果</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="listtable">
+                        </tbody>
+                    </table>
+                </div>
+                <script type="text/html" id="tpl_lsttable">
+                    {{each lst as item }}
+                    <tr>
+                        <td>{{item.CreationTime}}</td>
+                        <td>{{item.Description}}</td>
+                        <td>{{item.ExecuteResult==0?"成功":"异常"}}</td>
+                    </tr>
+                    {{/each}}
+                    {{if lst.length==0}}
+                    <tr>
+                        <td colspan="10" class="tc">
+                            <img src="/content/images/dataempty.png" />
+                        </td>
+                    </tr>
+                    {{/if}}
+                </script>
+                <div class='pagezone' id='pagezone'></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/content/js/bj-pagelist.js"></script>
+    <script type="text/javascript">
+        var ban = new Ban({
+            data: {
+                Search: {
+                    ID: "",
+
+                    Name: "",
+                    Status: "",
+                    JobId: LP.GetQueryString("id"),
+                    PageSize: 20,
+                    Page: 1
+                }, //搜索条件
+                Lst: [], //列表集合,
+                SearchUrl: '/Quartz/GetRunLog',
+            }
+        });
+
+        var P = {
+            HandData: () => {
+
+
+            },
+
+        }
+        $(() => {
+
+        });
+    </script>
+
+
+     
+</body>
+</html>
